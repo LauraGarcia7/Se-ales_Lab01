@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Name: "Signal analysis template"
+%%	File name: signalanalysis_template_main
+%%	Version: 1.5
+%%
+%%	Compiler: XeLaTeX
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[conference,compsoc,onecolumn]{IEEEtran}
+
+% *** LANGUAGE UTILITY PACKAGES ***
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[spanish]{babel}
+
+% *** USED PACKAGES ***
+\include{usedpackages}
+
+% *** CARPETA DONDE SE GUARDARAN LAS IMAGENES ***
+\graphicspath{{figures/}}
+
+% *** NUEVOS COMANDOS Y CONFIGURACIONES VARIAS ***
+\interdisplaylinepenalty=2500
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+	\dimendef\margin=0
+	\ifodd\value{page}\margin=\oddsidemargin
+	\else\margin=\evensidemargin
+	\fi
+	\raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+		\rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+			\llap{\rotatebox{90}{\thepage}}}}%
+	\egroup\fi}
+
+\AddEverypageHook{\Lpagenumber}%
+
+\newcommand{\newtxt}[1]{\textcolor{black}{#1}}
+\renewcommand\IEEEkeywordsname{Palabras cláve:}
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+
+%% Separación de palabras
+\hyphenation{op-tical net-works semi-conduc-tor HHMMSS}
+
+
+\begin{document}
+
+% *** TITLES AND NAMES ***
+% title of the document
+\title{Laboratorio 01: Introducción a LATEX}
+% author names and affiliations
+\author{\IEEEauthorblockN{Laura Victoria García Moreno}
+\IEEEauthorblockA{Codigo: 1022437085\\Escuela de Ciencias Exactas e Ingeniería\\
+	Universidad Sergio Arboleda - Bogotá, Colombia\\
+	laurav.garcia.correo@usa.edu.co}}
+
+
+% *** MAKE TITLE ***
+\maketitle
+\IEEEoverridecommandlockouts
+\IEEEpeerreviewmaketitle
+
+\begin{abstract}
+En el presente laboratorio se aplicarán las bases para desarrollar los posteriores laboratorios y talleres. Se presentarán las características de presentación de los laboratorios. Se realizará código de MATLAB que permita la generación, tratamiento y almacenamiento de imágenes. Se compilarán códigos en LATEXy se generarán archivos
+PDF de acuerdo al formato de presentación.
+\end{abstract}
+
+
+\begin{IEEEkeywords}
+    LATEX, PDF, Laboratorio, Análisis de señales.
+\end{IEEEkeywords}
+
+
+\section{Marco teórico}
+\label{sec:introduction}
+Escriba aquí su marco teórico.
+
+
+\section{Resultados}
+\label{sec:results}
+% Escriba su texto aquí
+La señal digital es un tipo de señal en que cada signo que codifica el contenido de la misma puede ser analizado
+en término de algunas magnitudes que representan valores discretos, en lugar de valores dentro de un cierto rango.
+Por ejemplo, el interruptor de la luz sólo puede tomar dos valores o estados: abierto o cerrado, o la misma lámpara:
+encendida o apagada (véase circuito de conmutación). Esto no significa que la señal físicamente sea discreta ya que los
+campos electromagnéticos suelen ser continuos, sino que en general existe una forma de discretizarla unívocamente.
+Ver fig. 1. [[[[figura 1]
+
+Los sistemas digitales, como por ejemplo el ordenador, usan la lógica de dos estados representados por dos
+niveles de tensión eléctrica, uno alto, H y otro bajo, L (de High y Low, respectivamente, en inglés). Por abstracción,dichos estados se sustituyen por ceros y unos, lo que facilita la aplicación de la lógica y la aritmética binaria. Si el
+nivel alto se representa por 1 y el bajo por 0, se habla de lógica positiva y en caso contrario de lógica negativa.
+
+Los cuatro puntos cardinales principales son:
+
+Norte
+
+Sur
+
+Este
+
+Oeste
+
+Los planetas del Sistema Solar, ordenados por proximidad al Sol, son:
+
+1. Mercurio
+
+2. Venus
+
+3. Tierra
+
+4. Marte…
+
+xk+1 = xk + T vk cos(θk + ϕk + sk) + 1
+2
+T
+2v˙k cos(θk + ϕk + sk). . .
+. . . −
+1
+2
+T
+2vk
+˙θk sin(θk + ϕk + sk)
+yk+1 = yk + T vk sin(θk + ϕk + sk) + 1
+2
+T
+2v˙k sin(θk + ϕk + sk). . .
+. . . +
+1
+2
+T
+2vk
+˙θk cos(θk + ϕk + sk)
+θk+1 = θk + T ˙θk +
+1
+2
+T
+2 ¨θk
+˙θk+1 = ˙θk + T ¨θk
+vk+1 = vk + Tv˙k
+ϕk+1 = ϕk + Tϕ˙
+k
+sk+1 = sk + Ts˙k
+(1)
+Código implementando MATLAB Recreamos los parámetros del gráfico de tipo tamaño de la caja y las rejillas,
+etiquetas y leyendas
+
+
+\section{Conclusiones}
+\label{sec:conclusions}
+% Escriba su texto aquí
+
+
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\label{sec:biblio}
+% Descomente y modiffique el archivo biblio.bib para agregar bibliografía
+%\bibliography{bib/biblio} 
+
+
+
+
+
+%\pagestyle{empty}
+\end{document}
+
+
