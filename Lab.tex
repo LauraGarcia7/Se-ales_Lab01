@@ -18,6 +18,7 @@
 
 % *** CARPETA DONDE SE GUARDARAN LAS IMAGENES ***
 \graphicspath{{figures/}}
+\usepackage{graphicx}
 
 % *** NUEVOS COMANDOS Y CONFIGURACIONES VARIAS ***
 \interdisplaylinepenalty=2500
@@ -33,7 +34,7 @@
 
 \AddEverypageHook{\Lpagenumber}%
 
-\newcommand{\newtxt}[1]{\textcolor{black}{#1}}
+\newcommand{\newtxt}[1]{\textcolor{black}}
 \renewcommand\IEEEkeywordsname{Palabras cláve:}
 \newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
 \newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
@@ -46,12 +47,12 @@
 
 % *** TITLES AND NAMES ***
 % title of the document
-\title{Laboratorio 01: Introducción a LATEX}
+\title{Laboratorio 01: Introducción a \LaTeX{}}
 % author names and affiliations
 \author{\IEEEauthorblockN{Laura Victoria García Moreno}
 \IEEEauthorblockA{Codigo: 1022437085\\Escuela de Ciencias Exactas e Ingeniería\\
 	Universidad Sergio Arboleda - Bogotá, Colombia\\
-	laurav.garcia.correo@usa.edu.co}}
+	laurav.garcia@correo.usa.edu.co}}
 
 
 % *** MAKE TITLE ***
@@ -60,8 +61,8 @@
 \IEEEpeerreviewmaketitle
 
 \begin{abstract}
-En el presente laboratorio se aplicarán las bases para desarrollar los posteriores laboratorios y talleres. Se presentarán las características de presentación de los laboratorios. Se realizará código de MATLAB que permita la generación, tratamiento y almacenamiento de imágenes. Se compilarán códigos en LATEXy se generarán archivos
-PDF de acuerdo al formato de presentación.
+\textbf{En el presente laboratorio se aplicarán las bases para desarrollar los posteriores laboratorios y talleres. Se presentarán las características de presentación de los laboratorios. Se realizará código de MATLAB que permita la generación, tratamiento y almacenamiento de imágenes. Se compilarán códigos en \LaTeX{} y se generarán archivos
+PDF de acuerdo al formato de presetación.}
 \end{abstract}
 
 
@@ -83,70 +84,70 @@ en término de algunas magnitudes que representan valores discretos, en lugar de
 Por ejemplo, el interruptor de la luz sólo puede tomar dos valores o estados: abierto o cerrado, o la misma lámpara:
 encendida o apagada (véase circuito de conmutación). Esto no significa que la señal físicamente sea discreta ya que los
 campos electromagnéticos suelen ser continuos, sino que en general existe una forma de discretizarla unívocamente.
-Ver fig. 1. [[[[figura 1]
+Ver fig. 1.
+ \begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{bib/.png}
+\caption{Vehículo y su modelo cinemático.}
+\label{fig:imagen laboratorio 1}
+\end{figure}
 
 Los sistemas digitales, como por ejemplo el ordenador, usan la lógica de dos estados representados por dos
 niveles de tensión eléctrica, uno alto, H y otro bajo, L (de High y Low, respectivamente, en inglés). Por abstracción,dichos estados se sustituyen por ceros y unos, lo que facilita la aplicación de la lógica y la aritmética binaria. Si el
 nivel alto se representa por 1 y el bajo por 0, se habla de lógica positiva y en caso contrario de lógica negativa.
 
 Los cuatro puntos cardinales principales son:
-
-Norte
-
-Sur
-
-Este
-
-Oeste
+\begin{itemize}
+    \item Norte.
+    \item Sur.
+    \item Este.
+    \item Oeste.
+\end{itemize}
 
 Los planetas del Sistema Solar, ordenados por proximidad al Sol, son:
+\begin{enumerate}
+    \item Mercurio
+    \item Venus
+    \item Tierra
+    \item Marte...
+\end{enumerate}
+\begin{equation}\label{eq_ej}
+\begin{split} 
+x_{k+1}  = & x_{k}+ T_{v k} cos(\theta_{k} + \phi_{k} + s_{k}) +\frac{1}{2}T^{2}\dot{v}_{k}cos(\theta_{k} + \phi_{k} + s_{k})...\\
+& ...-\frac{1}{2}T^{2}v_{k}\dot{\theta}_{k}sin(\theta_{k} + \phi_{k} + s_{k})\\
+y_{k+1} = & y_{k}+ T_{v k}sin(\theta_{k} + \phi_{k} + s_{k}) +\frac{1}{2}T^{2}\dot{v}_{k}sin(\theta_{k} + \phi_{k} + s_{k})...\\  
+&...+\frac{1}{2}T^{2}v_{k}\dot{\theta}_{k}cos(\theta_{k} + \phi_{k} + s_{k})\\
+\theta_{k+1}= & \theta_{k} + T \dot{\theta}_{k}+ \frac{1}{2}T^{2}\ddot{\theta}_{k}\\
+\dot{\theta}_{k+1}= & \dot{\theta}_{k} + T\ddot{\theta}_{k}\\
+v_{k+1}= &v_{k} + T \dot{v}_{ k}\\ 
+\phi_{k+1}= &\phi_{k} + T \dot{\phi} _{k}\\ 
+s_{k+1}= & s_{k} + T\dot{s} {k}\\ 
+\end{split}
+\end{equation}
 
-1. Mercurio
 
-2. Venus
-
-3. Tierra
-
-4. Marte…
-
-xk+1 = xk + T vk cos(θk + ϕk + sk) + 1
-2
-T
-2v˙k cos(θk + ϕk + sk). . .
-. . . −
-1
-2
-T
-2vk
-˙θk sin(θk + ϕk + sk)
-yk+1 = yk + T vk sin(θk + ϕk + sk) + 1
-2
-T
-2v˙k sin(θk + ϕk + sk). . .
-. . . +
-1
-2
-T
-2vk
-˙θk cos(θk + ϕk + sk)
-θk+1 = θk + T ˙θk +
-1
-2
-T
-2 ¨θk
-˙θk+1 = ˙θk + T ¨θk
-vk+1 = vk + Tv˙k
-ϕk+1 = ϕk + Tϕ˙
-k
-sk+1 = sk + Ts˙k
-(1)
 Código implementando MATLAB Recreamos los parámetros del gráfico de tipo tamaño de la caja y las rejillas,
 etiquetas y leyendas
 
-
-\section{Conclusiones}
-\label{sec:conclusions}
-% Escriba su texto aquí
+\lstset{language=Matlab, breaklines=true, basicstyle=\footnotesize}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=-2pt}
+\begin{lstlisting}[frame=single]
+  f_1 = 1.5e3; % [Hz]
+  f_2 = 2*f_1; % [Hz]
+  s1=cos(2*pi*f_1*t); %Carrier based on time vector; 
+  s2=cos(2*pi*f_2*t); %Carrier based on time vector; 
+  xmin=0; xmax=0.5; ymin=-1.1; ymax=1.1; %Box size 
+  Box=[xmin xmax ymin ymax]; 
+  labels = {'t, [ms] ' , 's_n(t) '}; %labelx , labely 
+  legends = {'$s_1(t)$' , '$s_2(t)=-\int_0^\pi {s_1(t) dt}$'}; 
+  h=legend(legends); 
+  set(h, 'Interpreter ' , 'latex ' , 'Location ' , ... 
+     'NorthEast' , 'FontSize ' ,16, 'FontWeight' , 'bold' , 'Orientation ' , 'vertical '); 
+  xlabel(labels(1) , 'fontsize ' ,16, 'FontAngle' , 'Italic '); 
+  ylabel(labels(2) , 'fontsize ' ,16); 
+  xlim([Box(1) Box(2)]) ; ylim([Box(3) Box(4)]) ; 
+  grid(gca, 'minor');
+\end{lstlisting}
 
 
 \nocite{*}
