@@ -34,7 +34,7 @@
 
 \AddEverypageHook{\Lpagenumber}%
 
-\newcommand{\newtxt}[1]{\textcolor{black}}
+\newcommand{\newtxt}[1]{\textcolor{black}{#1}}
 \renewcommand\IEEEkeywordsname{\normalfont Palabras cláve:}
 \newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
 \newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
@@ -59,21 +59,46 @@
  \maketitle
 \IEEEoverridecommandlockouts
 \IEEEpeerreviewmaketitle
-\begin{abstract}
-
-\normalfont En el presente laboratorio se aplicarán las bases para desarrollar los posteriores laboratorios y talleres. Se presentarán las características de presentación de los laboratorios. Se realizará código de MATLAB que permita la generación, tratamiento y almacenamiento de imágenes. Se compilarán códigos en \LaTeX{} y se generarán archivos
+    \centering{Resumen}\\
+\normalfont  \flushleft En el presente laboratorio se aplicarán las bases para desarrollar los posteriores laboratorios y talleres. Se presentarán las características deak presentación de los laboratorios. Se realizará código de MATLAB que permita la generación, tratamiento y almacenamiento de imágenes. Se compilarán códigos en \LaTeX{} y se generarán archivos
 PDF de acuerdo al formato de presetación.
-\end{abstract}
+
 
 
 \begin{IEEEkeywords}
-  \normalfont  LATEX, PDF, Laboratorio, Análisis de señales.
+  \normalfont  \LaTeX{}, PDF, Laboratorio, Análisis de señales.
 \end{IEEEkeywords}
 
 
 \section{\normalfont Marco teórico}
 \label{sec:introduction}
-Escriba aquí su marco teórico.
+TEX como sistema de preparación de documentos creado por Donald Knuth; los documentos en \LaTeX{} son archivos de texto. Dentro de Tex hay varios dialectos o paquetes de macros y uno de ellos es \LaTeX{}; creado por Leslie Lamport.  
+\LaTeX{} es un lenguaje y una herramienta que se usa en investigación o trabajos científicos para crear documentos; entre estos documentos se pueden hacer:
+\begin{itemize}
+    \item Tesis.
+    \item Libros y revistas.
+    \item Posters.
+\end{itemize}
+
+Es un lenguaje de tipo Scripting; que genera un archivo .pdf. Esta herramienta se encarga de automatizar la escritura, haciendo más fácil y rápida la elaboración de documentos con diferentes tipos de gráficos.
+Entre las facilidades que da \LaTeX{} en la elaboración de documentos esta la facilidad de agregar o eliminar, partes de un texto o trabajo escrito sin que se modifiquen o cambien las numeraciones de páginas o las referencias adicionalmente \LaTeX{} permite:
+\begin{itemize}
+    \item Alinea automáticamente textos, figuras y tablas.
+    \item Numera automáticamente ecuaciones, figuras y tablas.
+    \item Adapta automáticamente el interlineado, la fuente, la sangría, el tamaño, entre otras caracteristicas del formato de texto.
+\end{itemize}
+
+Así es el escritor debe ocuparse del contenido de su trabajo y no por el formato.
+En \LaTeX{} se pueden agregar diferentes paquetes los cuales tienen diferentes funciones, un ejemplo de estos son las siguientes líneas:
+
+\begin{itemize}
+    \item " \ usepackage[spanish]{babel}".
+    \item " \ usepackage[T1]{fontenc}". 
+    \item " \ usepackage[latin1]{inputenc}".
+\end{itemize}
+
+En las cuales se utilizan unos paquetes específicos como fontenc e inputenc los cuales hacen que \LaTeX{} reconozca acentos, eñes y caracteres del castellano. Existen otros paquetes como babel que permite separar correctamente las silabas en castellano.
+
 
 
 \section{\normalfont Resultados}
